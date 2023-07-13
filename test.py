@@ -5,7 +5,8 @@ import matplotlib
 
 # Keras / TensorFlow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
-from keras.models import load_model
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
+from tensorflow.keras.models import load_model
 from layers import BilinearUpSampling2D
 from tensorflow.keras.layers import Layer, InputSpec
 from utils import predict, load_images, display_images

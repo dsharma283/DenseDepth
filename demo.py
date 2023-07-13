@@ -41,7 +41,8 @@ graph = tf.compat.v1.get_default_graph()
 def load_model():
     # Kerasa / TensorFlow
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
-    from keras.models import load_model
+    os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
+    from tensorflow.keras.models import load_model
     from layers import BilinearUpSampling2D
 
     # Custom object needed for inference and training
@@ -237,7 +238,7 @@ class GLWidget(QtOpenGL.QGLWidget):
         self.col_vbo = None
         self.pos_vbo = None
         self.updateRGBD()
-
+ 
     def xRotation(self):
         return self.xRot
 
